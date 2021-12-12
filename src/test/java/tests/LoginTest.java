@@ -5,17 +5,16 @@ import org.testng.annotations.Test;
 import tests.BaseTest;
 
 import static org.testng.Assert.assertTrue;
-import static page.LoginPage.MENU_HOME_LINK;
 
 public class LoginTest extends BaseTest {
     @Test
     public void login() {
-        loginPage.open();
-        loginPage.isPageOpen();
-        loginPage.login("llev7208-1q4u@force.com", "Bobruisk2021");
+        boolean isHomePageOpened = loginPage
+                .open()
+                .login("llev7208-1q4u@force.com", "Bobruisk2021")
+                .isPageOpen();
 
-
-        assertTrue(homePage.isPageOpen(), "Страница HomePage не открылась ");
+        assertTrue(isHomePageOpened, "Страница HomePage не открылась ");
     }
 
 }

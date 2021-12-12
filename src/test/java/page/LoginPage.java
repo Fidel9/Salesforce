@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
     public static final By USERNAME_INPUT = By.id("username");
     public static final By PASSWORD_INPUT = By.id("password");
-    public static final By LOGIN_BUTTON = By.id("login");
-    public static final By MENU_HOME_LINK = By.xpath("//span[@class='slds-truncate'][text()='Home']");
+    public static final By LOGIN_BUTTON = By.id("Login");
 
 
     public LoginPage(WebDriver driver) {
@@ -19,15 +18,16 @@ public class LoginPage extends BasePage {
         return isExist(LOGIN_BUTTON);
     }
 
-    public void open() {
+    public LoginPage open() {
         driver.get(BASE_URL);
+        return this;
     }
 
-    public void login(String userName, String password) {
+    public HomePage login(String userName, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
-       // return new HomePage(driver);
-    }
 
+        return new HomePage(driver);
+    }
 }
