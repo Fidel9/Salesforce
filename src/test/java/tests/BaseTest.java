@@ -6,11 +6,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import page.*;
 
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseTest {
+@Listeners(TestListener.TestListener2.class)
+public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
@@ -45,6 +47,6 @@ public abstract class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
 
-        //driver.quit();
+        driver.quit();
     }
 }
