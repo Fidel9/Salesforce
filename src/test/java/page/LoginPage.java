@@ -18,6 +18,11 @@ public class LoginPage extends BasePage {
         return isExist(LOGIN_BUTTON);
     }
 
+    @Override
+    public boolean isPageOpen2() {
+        return isExist(LOGIN_BUTTON);
+    }
+
     public LoginPage open() {
         driver.get(BASE_URL);
         return this;

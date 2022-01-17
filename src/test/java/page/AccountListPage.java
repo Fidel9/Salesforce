@@ -15,6 +15,11 @@ public class AccountListPage extends BasePage{
         return isExist(BREADFCRUMBS_LABEL);
     }
 
+    @Override
+    public boolean isPageOpen2() {
+        return false;
+    }
+
     public AccountListPage open(){
         driver.get(BASE_URL + "/lightning/o/Account/list");
         return this;

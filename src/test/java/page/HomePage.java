@@ -19,4 +19,9 @@ public class HomePage extends BasePage {
     public boolean isPageOpen() {
         return isExist(MENU_HOME_LINK);
     }
+
+    @Override
+    public boolean isPageOpen2() {
+        return isExist(MENU_HOME_LINK);
+    }
 }

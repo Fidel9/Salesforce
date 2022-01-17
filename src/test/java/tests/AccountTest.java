@@ -1,7 +1,7 @@
 package tests;
 
 import models.Account;
-import models.AccountAddress;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +14,7 @@ public class AccountTest extends BaseTest {
     public void accountShouldBeCreated() {
         loginPage
                 .open()
-                .login("llev7208-1q4u@force.com", "Bobruisk2021");
+                .login("llev7208-gnwy@force.com", "Bobruisk2021");
 
         boolean isAccountModalOpen = accountListPage
                 .open()
@@ -25,13 +25,10 @@ public class AccountTest extends BaseTest {
         Account account = new Account("TestAccountName", "www.onliner.by", "Investor",
                 "new account description.", "123-456", "1", "Apparel");
 
-        AccountAddress account2 = new AccountAddress("","","Chapton Street",
-                "My address");
-
-        boolean isDetailsPaigeOpen = accountModalPage
-                .create(account,account2)
+        boolean isDetailsPageOpen = accountModalPage
+                .create(account)
                 .isPageOpen();
-        assertTrue(isDetailsPaigeOpen, "Не открывается");
+        assertTrue(isDetailsPageOpen, "Не открывается");
 
         assertEquals(accountDetailsPage.getFieldValueByName("Account Name"), account.getAccountName(), "");
         assertEquals(accountDetailsPage.getFieldValueByName("Website"), account.getWebSite(), "");

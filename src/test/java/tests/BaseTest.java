@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import page.*;
@@ -19,6 +18,10 @@ public abstract class BaseTest {
     AccountModalPage accountModalPage;
     AccountDetailsPage accountDetailsPage;
 
+    AccountContactListPage accountContactListPage;
+    AccountContactModalPage accountContactModalPage;
+    AccountContactDetailsPage accountContactDetailsPage;
+
     @BeforeMethod
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -32,6 +35,11 @@ public abstract class BaseTest {
         accountListPage = new AccountListPage(driver);
         accountModalPage = new AccountModalPage(driver);
         accountDetailsPage = new AccountDetailsPage(driver);
+
+        accountContactListPage = new AccountContactListPage(driver);
+        accountContactModalPage = new AccountContactModalPage(driver);
+        accountContactDetailsPage = new AccountContactDetailsPage(driver);
+
     }
 
     @AfterMethod(alwaysRun = true)
